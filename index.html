@@ -4,8 +4,7 @@
   <title>Yo-Yo Da</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="styles.css" />
-  <script src="jquery.js"></script>
-  <script src="yoda.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
 
@@ -26,17 +25,19 @@ $("#userInput").keydown(function(event){
       },
       timeout: 6000
     }).done(function(data){
-      console.log(data); // API currently not working
+      displayText(data);
+      console.log(data);
     }).fail(function(){
       var response = "Hurts my head does. Try again later, you must.";
       displayText(response);
+      console.log("Sorry! Looks like it didn't work. The API is somewhat finicky and can't handle too many requests. You can see the docs for Yoda API here: https://www.mashape.com/ismaelc/yoda-speak")
     });
   }
 })
 
 function displayText(response){
-  var yodaOutput = $("#yodaOutput").fadeOut(2000, function(){
-    $("#yodaOutput").html(response).fadeIn(2000);
+  var yodaOutput = $("#yodaOutput").fadeOut(1000, function(){
+    $("#yodaOutput").html(response).fadeIn(1000);
   });
 };
 
